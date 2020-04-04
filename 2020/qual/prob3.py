@@ -1,38 +1,33 @@
-DEBUG = True
-
-
-def debug(s):
-    if DEBUG:
-        print(s)
-
-
 def main():
     T = int(input())
 
     for x in range(1, T + 1):
         N = int(input())
 
-        debug(f'\n\n\nbeginning case {x}')
-        debug(f'num activities N: {N}')
+        # answer must be in provided order, but solution is easier in sorted
+        # order. sort order function from here:
+        # https://stackoverflow.com/questions/3382352
+        times = [[int(t) for t in input().split(' ')]
+                 for _ in range(N)]
+        sort_order = sorted(range(len(times)), key=times.__getitem__)
 
-        times = sorted([[int(t) for t in input().split(' ')]
-                        for _ in range(N)])
-
-        debug(f'times = {times}')
-
-        y = ''
-        c_busy_until = None
-        j_busy_until = None
-        for (s, e) in times:
-            if (c_busy_until is None or c_busy_until <= s):
+        y = [''] * len(times)
+        c_busy_until = 0
+        j_busy_until = 0
+        for i in sort_order:
+            s, e = times[i]
+            if c_busy_until <= s:
                 c_busy_until = e
-                y += 'C'
-            elif (j_busy_until is None or j_busy_until <= s):
+                y[i] = 'C'
+            elif j_busy_until <= s:
                 j_busy_until = e
-                y += 'J'
+                y[i] = 'J'
             else:
                 y = 'IMPOSSIBLE'
                 break
+
+        if isinstance(y, list):
+            y = ''.join(y)
 
         # x: the test case number (starting from 1)
         # y: IMPOSSIBLE if there is no valid schedule according to the above
