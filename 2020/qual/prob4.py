@@ -1,12 +1,5 @@
 import sys
 
-DEBUG = False
-
-
-def debug(s):
-    if DEBUG:
-        print(s)
-
 
 def query(i, qry_ctr):
     print(i)
@@ -108,10 +101,9 @@ def main():
                 # finish this test
                 break
 
-        result, qry_ctr = query(bc.answer, qry_ctr)
+        result, _ = query(bc.answer, 0)
         if result == 'N':
-            print('bc.answer = {}'.format(bc.answer), sys.stderr)
-            exit(bc.answer)
+            exit()
         elif result == 'Y':
             continue
         else:

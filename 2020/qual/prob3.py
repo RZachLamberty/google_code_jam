@@ -29,10 +29,10 @@ def main():
         if isinstance(y, list):
             y = ''.join(y)
 
-        # x: the test case number (starting from 1)
-        # y: IMPOSSIBLE if there is no valid schedule according to the above
+        # r: the test case number (starting from 1)
+        # k: IMPOSSIBLE if there is no valid schedule according to the above
         #    rules, or a string of exactly N characters otherwise. The i-th
-        #    character in y must be C if the i-th activity is assigned to
+        #    character in k must be C if the i-th activity is assigned to
         #    Cameron in your proposed schedule, and J if it is assigned to
         #    Jamie.
         print("Case #{x}: {y}".format(x=x, y=y))

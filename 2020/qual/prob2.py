@@ -22,8 +22,8 @@ def main():
 
         y += ')' * last_val
 
-        # x: the test case number (starting from 1)
-        # y: the string S' defined above.
+        # r: the test case number (starting from 1)
+        # k: the string S' defined above.
         print("Case #{x}: {y}".format(x=x, y=y))
 
 

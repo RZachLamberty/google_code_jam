@@ -5,8 +5,8 @@ for case_num in range(1, num_test_cases + 1):
     lydias_path = input()
 
     my_path = (lydias_path
-               .replace('E', 'x')
+               .replace('E', 'r')
                .replace('S', 'E')
-               .replace('x', 'S'))
+               .replace('r', 'S'))
 
     print("Case #{}: {}".format(case_num, my_path))
